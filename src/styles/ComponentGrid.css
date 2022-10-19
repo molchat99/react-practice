@@ -4,8 +4,8 @@
     grid-template-columns: 1fr 1fr 1fr; 
     grid-template-rows: 1fr 1fr 1fr; 
     grid-template-areas: 
-    "Daily graph graph"
-    ". . ."
+    "daily graph graph"
+    ". graph graph"
     ". . ."; 
 
 }
@@ -13,13 +13,14 @@
 .component {
     margin: 1em;
     padding: 1em;
-    background-color: #fa9494;
-    border-radius: 1em;
+    background-color: rgba(0, 0, 0, 0.616);
+    border-radius: 0em;
     transition: all .2s ease-in-out;
+    color: white;
 }
 
-.component:hover { transform: scale(1.1);}
+.component:hover { transform: scale(1.03);}
 
 
-.daily { grid-area: Daily; }
+.daily { grid-area: daily; }
 .graph { grid-area: graph; }
