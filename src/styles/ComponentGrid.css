@@ -5,7 +5,7 @@
     grid-template-rows: 1fr 1fr 1fr; 
     grid-template-areas: 
     "daily graph graph"
-    ". graph graph"
+    "daily graph graph"
     ". . ."; 
 
 }
@@ -17,6 +17,20 @@
     border-radius: 0em;
     transition: all .2s ease-in-out;
     color: white;
+    position: relative;
+}
+
+.component::after {
+    display: inline-block;
+    content: "\00d7"; /* This will render the 'X' */
+    align-content: center;
+    right: 2em;
+    top: 2em;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    transform: scale(3);
+    background-color: black;
 }
 
 .component:hover { transform: scale(1.03);}

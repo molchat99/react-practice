@@ -20,7 +20,7 @@ export default function dailyComponent() {
       <div className={classes}>
           <form>
           <label>
-            Pullups today: 
+             Today: 
             <input type="text" name="name" />
           </label>
         </form>
