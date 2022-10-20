@@ -13,7 +13,11 @@ export default function dailyComponent() {
       <div className={classes}>
         <h1>Impressive</h1>
         <p>You did {pullupData.components.daily.amount} Pull Ups today!</p>
+        <div className = "close-component">
+
+        </div>
       </div>
+      
     )
   } else {
     return (
@@ -24,6 +28,9 @@ export default function dailyComponent() {
             <input type="text" name="name" />
           </label>
         </form>
+        <div className = "close-component">
+        
+        </div>
       </div>
     )
   }

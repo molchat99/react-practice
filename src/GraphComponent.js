@@ -7,7 +7,11 @@ const classes = `component ${pullupData.components.graph.class}`
 
 export default function GraphComponent() {
   return (
-    <div className={classes}>GraphComponent</div>
+    <div className={classes}>GraphComponent
+      <div className = "close-component">
+
+      </div>
+    </div>
   )
 }
 
