@@ -1,7 +1,5 @@
 # Visualization of data points
 
-![alt text](http://url/to/img.png)
-
 In the project directory, you can run:
 
 ### `npm start`
