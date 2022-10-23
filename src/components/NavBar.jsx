@@ -1,24 +1,24 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import '../styles/nav.css';
+import AddCity from './AddCity';
 
 
-class NavBar extends Component {
-    state = { 
-        
-    }
+function NavBar() {
 
-    render() {
+    const [openModal, setOpenModal] = useState(false);
+
+    
         return (
             <nav className="myNav navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand m-2" href="#">A grid of data-points</a>
+                <div className="navbar-brand m-2">A grid of data-points</div>
 
-                <button className="btn btn-outline-success" type="button">Add city</button>
+                <button className="btn btn-outline-success open-modal" onClick={() => {setOpenModal(true)}} type="button">Add city</button>
+                {openModal && <AddCity />}
 
-                    
 
             </nav>
         );
-    }
+    
 }
 
 export default NavBar;

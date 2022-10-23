@@ -1,0 +1,9 @@
+.modal-background {
+    width: 50%;
+}
+
+.modal-container {
+    display: flex;
+    color: white;
+}
+
