@@ -9,7 +9,7 @@ import RangeSlider from 'react-bootstrap-range-slider';
 
 function Controls(props) {
 
-    const [value, setValue] = useState(20);
+    const [value, setValue] = useState(25);
     console.log(props)
 
     return (
