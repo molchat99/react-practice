@@ -12,7 +12,7 @@ function NavBar() {
             <nav className="myNav navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="navbar-brand m-2">A grid of data-points</div>
 
-                <button className="btn btn-outline-success open-modal" onClick={() => {setOpenModal(true)}} type="button">Add city</button>
+                <button className="btn btn-outline-success open-modal" onClick={() => {setOpenModal(true)}} type="button">How to</button>
                 {openModal && <AddCity />}
 
 

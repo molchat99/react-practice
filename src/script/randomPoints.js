@@ -1,11 +1,12 @@
-function randomPoints() {
+function randomPoints(gridSize) {
     let pointArray = []
-    const max = 400;
+    const max = gridSize*gridSize;
     const pointAmount = Math.floor(Math.random() * max);
-    for(let i = 0;  i>pointAmount; i++) {
+    console.log('Generated', pointAmount, 'points')
+    for(let i = 0;  i<pointAmount; i++) {
         
-        const gridCol = Math.floor(Math.random() * pointAmount);
-        const gridRow = Math.floor(Math.random() * pointAmount);
+        const gridCol = Math.floor(Math.random() * gridSize);
+        const gridRow = Math.floor(Math.random() * gridSize);
         const colString = `${gridCol}/${gridCol+1}`;
         const rowString = `${gridRow}/${gridRow+1}`;
         pointArray.push(

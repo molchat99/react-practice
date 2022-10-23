@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import DataPoint from './DataPoint';
+import Controls from './Controls';
+
 //import AddDataPoint from './AddDataPoint';
 import  randomPoints from '../script/randomPoints.js'
 import '../styles/mapGrid.css';
@@ -33,6 +35,7 @@ class MapGrid extends Component {
         showInfo: false
       }
     ],
+    gridSize: 10
   }
 
   handleDelete = (dataPointId) => {
@@ -48,22 +51,38 @@ class MapGrid extends Component {
     this.setState({dataPoints:dataPoints})
   }
 
-  handleGeneration = () => {
-    const dataPoints = randomPoints();
+  handleGeneration = (gridSize) => {
+    let grid = document.getElementsByClassName('map-grid')[0]
+    grid.style.setProperty('--gridSize', gridSize)
+    grid.style.setProperty('--dataPointSize', `${100/gridSize}px`)
+    const dataPoints = randomPoints(gridSize);
     console.log(dataPoints)
     this.setState({dataPoints: dataPoints})
   }
 
-  handleStop = () => {
+  handleReset = () => {
     const dataPoints = [];
     this.setState({dataPoints: dataPoints})
+  }
+
+  handleSliderChange = (value) => {
+    let gridSize = 0;
+    console.log(value)
+    gridSize = value;
+    this.setState({gridSize:gridSize})
   }
 
   render() { 
     return (
       <div className='container'>
-      <button className="btn btn-outline-success open-modal" onClick={this.handleGeneration()} type="button">Generate data!</button>
-      <button className="btn btn-outline-warning open-modal" onClick={this.handleStop()} type="button">Stop</button>
+        <Controls 
+          onGeneration={this.handleGeneration}
+          onReset={this.handleReset}
+          gridSize={this.state.gridSize}
+          onSliderChange={this.handleSliderChange}
+          />
+      
+      
 
         <div className='map-grid'>
           {this.state.dataPoints.map( dataPoint => 
@@ -76,7 +95,7 @@ class MapGrid extends Component {
             </DataPoint> 
              
           )}
-
+    
         </div>
       </div>
     );

@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import '../styles/mapGrid.css';
 import DataPointModal from './DataPointModal';
-import  randomPoints from '../script/randomPoints.js'
 
 
 function DataPoint(props) {
