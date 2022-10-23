@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import DataPoint from './DataPoint';
-import AddDataPoint from './AddDataPoint';
+//import AddDataPoint from './AddDataPoint';
+import  randomPoints from '../script/randomPoints.js'
 import '../styles/mapGrid.css';
 
 class MapGrid extends Component {
@@ -10,6 +11,7 @@ class MapGrid extends Component {
       {
         id: 1,
         city: "Berlin",
+        people: 5,
         location: {gridColumn:"5/6",gridRow:"1/2"},
         enabled: true,
         showInfo: false
@@ -17,6 +19,7 @@ class MapGrid extends Component {
       {
         id: 2,
         city: "San Francisco",
+        people: 10,
         location: {gridColumn:"1/2",gridRow:"5/6"},
         enabled: true,
         showInfo: false
@@ -24,11 +27,12 @@ class MapGrid extends Component {
       {
         id: 3,
         city: "Tokyo",
+        people: 20,
         location: {gridColumn:"11/12",gridRow:"8/9"},
         enabled: true,
         showInfo: false
       }
-    ]
+    ],
   }
 
   handleDelete = (dataPointId) => {
@@ -44,9 +48,23 @@ class MapGrid extends Component {
     this.setState({dataPoints:dataPoints})
   }
 
+  handleGeneration = () => {
+    const dataPoints = randomPoints();
+    console.log(dataPoints)
+    this.setState({dataPoints: dataPoints})
+  }
+
+  handleStop = () => {
+    const dataPoints = [];
+    this.setState({dataPoints: dataPoints})
+  }
+
   render() { 
     return (
       <div className='container'>
+      <button className="btn btn-outline-success open-modal" onClick={this.handleGeneration()} type="button">Generate data!</button>
+      <button className="btn btn-outline-warning open-modal" onClick={this.handleStop()} type="button">Stop</button>
+
         <div className='map-grid'>
           {this.state.dataPoints.map( dataPoint => 
             <DataPoint 
@@ -55,21 +73,26 @@ class MapGrid extends Component {
             onInformation={this.handleInformation}
             onDelete={this.handleDelete}
             >
-            </DataPoint>  
+            </DataPoint> 
+             
           )}
-          
+
         </div>
       </div>
     );
   }
 
   // {this.calcLineDiv(this.state.dataPoints[0], this.state.dataPoints[1])}
+
   // calcLineDiv = (dataPointA, dataPointB) => {
   //   const colA = dataPointA.location.gridColumn[0];
   //   const rowA = dataPointA.location.gridRow[0];
 
   //   const colB = dataPointB.location.gridColumn[0];
   //   const rowB = dataPointB.location.gridRow[0];
+
+  //   console.log(colA, rowA, colB, rowB)
+
 
   //   let gridCol = "";
   //   let gridR = "";
@@ -95,7 +118,7 @@ class MapGrid extends Component {
   //   line.gridRow = gridR;
 
   //   return <div className="line" style={line}></div>
-  // }
+  //}
 }
  
 export default MapGrid;

@@ -1,27 +1,27 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import '../styles/mapGrid.css';
+import DataPointModal from './DataPointModal';
+import  randomPoints from '../script/randomPoints.js'
 
-class DataPoint extends Component {
-  
-  displayInfo() {
-    return (this.props.dataPoint.showInfo ? {display: 'block'} : {display: 'none'})
+
+function DataPoint(props) {
+
+  const [openModal, setOpenModal] = useState(false);
+  const modalIsOpen = () => {
+    setOpenModal(c=>!c);
   }
 
-  render() { 
+
     return (
-      <div style={this.props.dataPoint.location}>
-        <div className="data-point" onClick={() => {this.props.onInformation(this.props.dataPoint)}}></div>
-        <div className="info" style={this.displayInfo()}>
-          <p className='data-point-city'>
-          {this.props.dataPoint.city}
-          </p>
-          <button onClick={() => {this.props.onDelete(this.props.dataPoint.id)}}>Delete</button>
-        </div>
+      <div style={props.dataPoint.location}>
+        <div className='data-point-wrapper'>
+          <div className="data-point" onClick={modalIsOpen}></div>
+          {openModal && <DataPointModal dataPoint={props.dataPoint} onDelete={props.onDelete}/>}
+          
+          </div>
       </div>
       
     );
-  }
-
 }
  
 export default DataPoint;
