@@ -6,21 +6,30 @@ import DataPointModal from './DataPointModal';
 function DataPoint(props) {
 
   const [openModal, setOpenModal] = useState(false);
-  const modalIsOpen = () => {
+
+  var modalIsOpen = () => {
     setOpenModal(c=>!c);
   }
 
+  return (
+    <div style={props.dataPoint.location} className={(props.dataPoint.class.includes('pivot')) ? "pivotCell" : ''}>
+      <div className='data-point-wrapper'>
+        <div 
+          className={props.dataPoint.class}
+          key={props.dataPoint.key} 
+          onMouseEnter={()=>{modalIsOpen();props.onInformation(props.dataPoint)}} 
+          onMouseLeave={()=>{modalIsOpen();props.onInformation(props.dataPoint)}} 
+          onClick={()=>{props.onWinCondition(props.dataPoint)}}></div>
 
-    return (
-      <div style={props.dataPoint.location}>
-        <div className='data-point-wrapper'>
-          <div className="data-point" onClick={modalIsOpen}></div>
-          {openModal && <DataPointModal dataPoint={props.dataPoint} onDelete={props.onDelete}/>}
-          
-          </div>
-      </div>
-      
-    );
+          {openModal && <DataPointModal 
+          dataPoint={props.dataPoint} 
+          onDelete={props.onDelete}
+          />}
+        
+        </div>
+    </div>
+    
+  );
 }
  
 export default DataPoint;

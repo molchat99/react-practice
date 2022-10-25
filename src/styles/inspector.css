@@ -1,0 +1,11 @@
+.inspector {
+    background-color: black;
+    padding: 1em;
+    border: solid white 1px;
+}
+
+.inspector > p {
+    color: white;
+    margin: 0 auto;
+    width: fit-content;
+}

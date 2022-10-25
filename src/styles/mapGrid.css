@@ -33,11 +33,14 @@
     background: white;
 }
 
+.pivot {
+    background: red;
+}
+
 .data-point:hover {
     transform: scale(5);
     background: red;
 }
-
 
 .info {
     position: absolute;

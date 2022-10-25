@@ -1,6 +1,9 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import DataPoint from './DataPoint';
 import Controls from './Controls';
+import Inspector from './Inspector';
+import '../styles/inspector.css';
+
 
 //import AddDataPoint from './AddDataPoint';
 import  randomPoints from '../script/randomPoints.js'
@@ -12,30 +15,43 @@ class MapGrid extends Component {
     [
       {
         id: 1,
-        city: "Berlin",
-        people: 5,
+        name: "test",
+        size: 5,
         location: {gridColumn:"5/6",gridRow:"1/2"},
-        enabled: true,
-        showInfo: false
+        enabled: false,
+        showInfo: false,
+        class: "data-point"
       },
       {
         id: 2,
-        city: "San Francisco",
-        people: 10,
+        name: "test",
+        size: 10,
         location: {gridColumn:"1/2",gridRow:"5/6"},
-        enabled: true,
-        showInfo: false
+        enabled: false,
+        showInfo: false,
+        class: "data-point"
       },
       {
         id: 3,
-        city: "Tokyo",
-        people: 20,
+        name: "test",
+        size: 20,
         location: {gridColumn:"11/12",gridRow:"8/9"},
-        enabled: true,
-        showInfo: false
+        enabled: false,
+        showInfo: false,
+        class: "data-point"
       }
     ],
-    gridSize: 10
+    inspectPoint: {
+      id: 3,
+      name: "test",
+      size: 20,
+      location: {gridColumn:"11/12",gridRow:"8/9"},
+      enabled: false,
+      showInfo: false
+    },
+    gridSize: 25,
+    winMessage: '',
+    timeOut: 3000
   }
 
   handleDelete = (dataPointId) => {
@@ -44,6 +60,7 @@ class MapGrid extends Component {
   }
 
   handleInformation = (dataPoint) => {
+    this.setState({inspectPoint:dataPoint})
     const dataPoints = [...this.state.dataPoints]
     const index = this.state.dataPoints.indexOf(dataPoint)
     dataPoints[index] = {...dataPoint}
@@ -51,14 +68,23 @@ class MapGrid extends Component {
     this.setState({dataPoints:dataPoints})
   }
 
+  disablePivot = () => {
+    setTimeout(function(){
+      console.log(this.state.dataPoints)
+      //let dataPoints = [...this.state.dataPoints]
+      //dataPoints[0].class = "data-point"
+      //this.setState({dataPoints: dataPoints})
+    },this.state.timeOut)
+  }
+
   handleGeneration = (gridSize) => {
     let grid = document.getElementsByClassName('map-grid')[0]
     grid.style.setProperty('--gridSize', gridSize)
     grid.style.setProperty('--dataPointSize', `${100/gridSize}px`)
     const dataPoints = randomPoints(gridSize);
-    console.log(dataPoints)
     this.setState({dataPoints: dataPoints})
   }
+
 
   handleReset = () => {
     const dataPoints = [];
@@ -72,17 +98,32 @@ class MapGrid extends Component {
     this.setState({gridSize:gridSize})
   }
 
+  handleWinCondition = (dataPoint) => {
+    console.log('testing win for', dataPoint);
+    (dataPoint.id===1) ? this.setState({winMessage:'won!'}) : this.setState({winMessage:'not won!'});
+  }
+  
+
   render() { 
     return (
       <div className='container'>
+        
         <Controls 
           onGeneration={this.handleGeneration}
           onReset={this.handleReset}
           gridSize={this.state.gridSize}
           onSliderChange={this.handleSliderChange}
-          />
-      
-      
+          onDisablePivot={this.disablePivot}
+        />
+        <div className="inspector">
+          <Inspector 
+          dataPoint={this.state.inspectPoint}
+          win={this.state.winMessage}
+          >
+            
+          </Inspector>
+        </div>
+
 
         <div className='map-grid'>
           {this.state.dataPoints.map( dataPoint => 
@@ -91,12 +132,18 @@ class MapGrid extends Component {
             dataPoint={dataPoint}
             onInformation={this.handleInformation}
             onDelete={this.handleDelete}
+            onSetDataPoint={this.handleSetDataPoint}
+            onWinCondition={this.handleWinCondition}
+            
             >
             </DataPoint> 
+
+            
              
           )}
-    
         </div>
+        
+
       </div>
     );
   }

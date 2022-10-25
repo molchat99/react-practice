@@ -10,11 +10,10 @@ import RangeSlider from 'react-bootstrap-range-slider';
 function Controls(props) {
 
     const [value, setValue] = useState(25);
-    console.log(props)
 
     return (
       <div className='controls'>
-        <button className="btn btn-outline-success open-modal control-btn" onClick={()=>{props.onGeneration(props.gridSize)}} type="button">Generate data</button>
+        <button className="btn btn-outline-success open-modal control-btn" onClick={()=>{props.onGeneration(props.gridSize);props.onDisablePivot()}} type="button">Generate data</button>
         <button className="btn btn-outline-warning open-modal control-btn" onClick={props.onReset} type="button">Reset data</button>
         <Form  className="control-btn">
             <Form.Group>

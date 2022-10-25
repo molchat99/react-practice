@@ -2,13 +2,15 @@ import React from 'react'
 
 function DataPointModal(props) {
   return (
-        <div className="info">
+        <div className="info" >
           <p className='data-point-city'>
-          {props.dataPoint.city}
+          {props.dataPoint.name}
+          <p>{props.dataPoint.id}</p>
           </p>
-          <button onClick={() => {props.onDelete(props.dataPoint.id)}}>Delete</button>
         </div>
   )
 }
+
+//           <button onClick={() => {props.onDelete(props.dataPoint.id)}}></button>
 
 export default DataPointModal
