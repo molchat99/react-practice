@@ -1,10 +1,10 @@
 # How good is your peripheral vision?
 
-This little minigame will tell you!
+This minigame will tell you!
 
 <img src="https://i.imgur.com/6XSy0Il.gif">
 
- The goal is to perceive the position of a red dot in a certain period of time. After that period the red dot will look like any other dot in the grid. The difficulty can ve varied by different factors:
+ The goal is to perceive the position of a red dot in a certain period of time. After that period the red dot will look like any other dot in the grid. The difficulty can ve varied by following factors:
 <ul>
     <li>gridsize (will also impact the diameter of the points)</li>
     <li>timeout-period</li>
