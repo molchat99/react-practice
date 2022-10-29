@@ -79,10 +79,6 @@ form.control-btn > div {
     display: flex;
 }
 
-.range-slider__tooltip {
-    margin: 0 1em;
-}
-
 input[type="range"] {
     cursor: pointer;
 }

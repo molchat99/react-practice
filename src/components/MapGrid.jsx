@@ -68,15 +68,6 @@ class MapGrid extends Component {
     this.setState({dataPoints:dataPoints})
   }
 
-  disablePivot = () => {
-    setTimeout(function(){
-      console.log(this.state.dataPoints)
-      //let dataPoints = [...this.state.dataPoints]
-      //dataPoints[0].class = "data-point"
-      //this.setState({dataPoints: dataPoints})
-    },this.state.timeOut)
-  }
-
   handleGeneration = (gridSize) => {
     let grid = document.getElementsByClassName('map-grid')[0]
     grid.style.setProperty('--gridSize', gridSize)
@@ -85,17 +76,30 @@ class MapGrid extends Component {
     this.setState({dataPoints: dataPoints})
   }
 
+  handlePivot = () => {
+    console.log('switching off pivot...')
+    let dataPoints = [...this.state.dataPoints]
+    dataPoints[0].class = "data-point"
+    this.setState({dataPoints: dataPoints})
+  }
 
   handleReset = () => {
     const dataPoints = [];
     this.setState({dataPoints: dataPoints})
   }
 
-  handleSliderChange = (value) => {
+  handleGridSizeChange = (value) => {
     let gridSize = 0;
-    console.log(value)
+    console.log("Changed gridsize to", value)
     gridSize = value;
     this.setState({gridSize:gridSize})
+  }
+
+  handleTimeOutChange = (value) => {
+    let timeOut = 0;
+    console.log("Changed timeOut to", value)
+    timeOut = value;
+    this.setState({timeOut:timeOut})
   }
 
   handleWinCondition = (dataPoint) => {
@@ -112,7 +116,9 @@ class MapGrid extends Component {
           onGeneration={this.handleGeneration}
           onReset={this.handleReset}
           gridSize={this.state.gridSize}
-          onSliderChange={this.handleSliderChange}
+          onGridSizeChange={this.handleGridSizeChange}
+          timeOut={this.state.timeOut}
+          onTimeOutChange={this.handleTimeOutChange}
           onDisablePivot={this.disablePivot}
         />
         <div className="inspector">
@@ -134,6 +140,8 @@ class MapGrid extends Component {
             onDelete={this.handleDelete}
             onSetDataPoint={this.handleSetDataPoint}
             onWinCondition={this.handleWinCondition}
+            onPivot={this.handlePivot}
+            timeOut={this.state.timeOut}
             
             >
             </DataPoint> 

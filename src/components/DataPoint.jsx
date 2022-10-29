@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import '../styles/mapGrid.css';
 import DataPointModal from './DataPointModal';
 
@@ -6,10 +6,19 @@ import DataPointModal from './DataPointModal';
 function DataPoint(props) {
 
   const [openModal, setOpenModal] = useState(false);
-
   var modalIsOpen = () => {
     setOpenModal(c=>!c);
   }
+
+  useEffect(() => {
+    if(props.dataPoint.class==='data-point pivot'){
+      setTimeout(() => {
+        props.onPivot();
+        
+      }, props.timeOut)
+    }
+    
+  }, [props]);
 
   return (
     <div style={props.dataPoint.location} className={(props.dataPoint.class.includes('pivot')) ? "pivotCell" : ''}>
