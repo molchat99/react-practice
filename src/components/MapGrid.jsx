@@ -51,7 +51,7 @@ class MapGrid extends Component {
     },
     gridSize: 25,
     winMessage: '',
-    timeOut: 3000
+    timeOut: 500
   }
 
   handleDelete = (dataPointId) => {
