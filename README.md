@@ -2,7 +2,7 @@
 
 This little minigame will tell you!
 
-<img src="https://i.imgur.com/oYVokfz.mp4"">
+<img src="https://i.imgur.com/6XSy0Il.gif"">
 
  The goal is to perceive the position of a red dot in a certain period of time. After that period the red dot will look like any other dot in the grid. The difficulty can ve varied by different factors:
 <ul>
@@ -18,7 +18,8 @@ To Do:
     <li>Add highscore system</li>
     <li>Distinguish between creative mode (settings can be modified by the player) and highscore mode (difficuly increases with each successful round)</li>
     <li>Add control of point-amount</li>
-    <li><strike>Make game playable by adding delay<strike></li>
+    <li>Beautify UI</li>
+    <li><strike>Make game playable by adding delay</strike></li>
     <li><strike>Solve bugs in point generator</strike></li>
 </ul>
 
