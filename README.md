@@ -2,7 +2,7 @@
 
 This little minigame will tell you!
 
-<img src="https://i.imgur.com/6XSy0Il.gif"">
+<img src="https://i.imgur.com/6XSy0Il.gif">
 
  The goal is to perceive the position of a red dot in a certain period of time. After that period the red dot will look like any other dot in the grid. The difficulty can ve varied by different factors:
 <ul>
