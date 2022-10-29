@@ -73,6 +73,7 @@ class MapGrid extends Component {
     grid.style.setProperty('--gridSize', gridSize)
     grid.style.setProperty('--dataPointSize', `${100/gridSize}px`)
     const dataPoints = randomPoints(gridSize);
+    this.setState({winMessage:''})
     this.setState({dataPoints: dataPoints})
   }
 
