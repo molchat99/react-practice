@@ -89,12 +89,12 @@ class MapGrid extends Component {
       highscore++;
       this.setState({highscore:highscore})
     } else {
-      this.setState({winMessage:'Pathetic.. 🙄'})
+      this.setState({winMessage:'Try again!	😶‍🌫️'})
       inspector.style.setProperty('background-color', 'red')
       this.setState({highscore:0})
       let lossesInRow = this.state.lossesInRow;
       lossesInRow++;
-      if(lossesInRow >= 3) {
+      if(lossesInRow >= 5) {
         this.setState({winMessage:'Are you even trying?'})
         this.setState({lossesInRow:0})
       } else {
