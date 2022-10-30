@@ -12,35 +12,7 @@ import '../styles/mapGrid.css';
 class MapGrid extends Component {
   state = { 
     dataPoints:
-    [
-      {
-        id: 1,
-        name: "test",
-        size: 5,
-        location: {gridColumn:"5/6",gridRow:"1/2"},
-        enabled: false,
-        showInfo: false,
-        class: "data-point"
-      },
-      {
-        id: 2,
-        name: "test",
-        size: 10,
-        location: {gridColumn:"1/2",gridRow:"5/6"},
-        enabled: false,
-        showInfo: false,
-        class: "data-point"
-      },
-      {
-        id: 3,
-        name: "test",
-        size: 20,
-        location: {gridColumn:"11/12",gridRow:"8/9"},
-        enabled: false,
-        showInfo: false,
-        class: "data-point"
-      }
-    ],
+    [],
     inspectPoint: {
       id: 3,
       name: "test",
@@ -51,7 +23,9 @@ class MapGrid extends Component {
     },
     gridSize: 25,
     winMessage: '',
-    timeOut: 500
+    timeOut: 500,
+    highscore: 0,
+    lossesInRow: 0,
   }
 
   handleDelete = (dataPointId) => {
@@ -69,6 +43,8 @@ class MapGrid extends Component {
   }
 
   handleGeneration = (gridSize) => {
+    let inspector = document.getElementsByClassName('inspector')[0]
+    inspector.style.setProperty('background-color', 'black')
     let grid = document.getElementsByClassName('map-grid')[0]
     grid.style.setProperty('--gridSize', gridSize)
     grid.style.setProperty('--dataPointSize', `${100/gridSize}px`)
@@ -105,7 +81,28 @@ class MapGrid extends Component {
 
   handleWinCondition = (dataPoint) => {
     console.log('testing win for', dataPoint);
-    (dataPoint.id===1) ? this.setState({winMessage:'won!'}) : this.setState({winMessage:'not won!'});
+    let inspector = document.getElementsByClassName('inspector')[0]
+    if(dataPoint.id===1) {
+      this.setState({winMessage:'Great! 😀'})
+      inspector.style.setProperty('background-color', 'green')
+      let highscore = this.state.highscore;
+      highscore++;
+      this.setState({highscore:highscore})
+    } else {
+      this.setState({winMessage:'Pathetic.. 🙄'})
+      inspector.style.setProperty('background-color', 'red')
+      this.setState({highscore:0})
+      let lossesInRow = this.state.lossesInRow;
+      lossesInRow++;
+      if(lossesInRow >= 3) {
+        this.setState({winMessage:'Are you even trying?'})
+        this.setState({lossesInRow:0})
+      } else {
+        this.setState({lossesInRow:lossesInRow})
+      }
+      
+      
+    }
   }
   
 
@@ -124,8 +121,9 @@ class MapGrid extends Component {
         />
         <div className="inspector">
           <Inspector 
-          dataPoint={this.state.inspectPoint}
-          win={this.state.winMessage}
+            dataPoint={this.state.inspectPoint}
+            win={this.state.winMessage}
+            highscore={this.state.highscore}
           >
             
           </Inspector>

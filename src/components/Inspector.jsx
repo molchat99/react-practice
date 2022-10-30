@@ -4,9 +4,10 @@ import '../styles/inspector.css';
 
 function Inspector(props) {
     return (
-        <p>
-          {props.win}
-        </p>
+        <div className='inspector-wrapper'>
+          <div className='inspector-component high-score'>Highscore: {props.highscore}</div>
+          <div className='inspector-component win-message'>{props.win}</div>
+        </div>
     );
   }
  

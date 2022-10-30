@@ -17,7 +17,6 @@ function randomPoints(gridSize) {
         let point = {
             id: i+1,
             name: "test",
-            size: 5,
             location: {gridColumn: posArray[0], gridRow: posArray[1]},
             enabled: false,
             showInfo: false,
