@@ -1,6 +1,6 @@
-# How good is your peripheral vision?
+# How good is your peripheral vision? 
 
-This minigame will tell you!
+This minigame will tell you! (work in progress)
 
 <img src="https://i.imgur.com/6XSy0Il.gif">
 
