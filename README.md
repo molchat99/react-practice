@@ -22,6 +22,7 @@ Planned features:
 
 Smaller additions:
 <ul>
+    <li>Add "How to play" section !!!!</li>
     <li>Add number of attemps for correct datapoints</li>
     <li>Add control of point-amount</li>
     <li><strike>Beautify UI</strike></li>
