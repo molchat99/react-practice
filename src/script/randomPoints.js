@@ -26,7 +26,6 @@ function randomPoints(gridSize) {
 
         // only add datapoints with unique positions
         let posString = `${posArray[0]}/${posArray[1]}`
-        console.log(posString)
         if(!uniquePositions.includes(posString)){
             uniquePositions.push(posString);
             pointArray.push(point)
@@ -35,8 +34,6 @@ function randomPoints(gridSize) {
             i--;
         }
     }
-    console.log(uniquePositions)
-    console.log(pointArray)
 
 
     return pointArray;

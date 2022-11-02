@@ -22,7 +22,7 @@ class MapGrid extends Component {
       showInfo: false
     },
     gridSize: 25,
-    winMessage: '',
+    winMessage: 'Press space to start!',
     timeOut: 500,
     highscore: 0,
     lossesInRow: 0,
