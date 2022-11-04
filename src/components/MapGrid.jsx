@@ -10,6 +10,8 @@ import  randomPoints from '../script/randomPoints.js'
 import '../styles/mapGrid.css';
 
 class MapGrid extends Component {
+
+
   state = { 
     dataPoints:
     [],
@@ -26,6 +28,10 @@ class MapGrid extends Component {
     timeOut: 500,
     highscore: 0,
     lossesInRow: 0,
+  }
+
+  handlePressSpace = () => {
+    this.handleGeneration(this.state.gridSize)
   }
 
   handleDelete = (dataPointId) => {
@@ -118,6 +124,7 @@ class MapGrid extends Component {
           timeOut={this.state.timeOut}
           onTimeOutChange={this.handleTimeOutChange}
           onDisablePivot={this.disablePivot}
+          onSpacePress={this.handlePressSpace}
         />
         <div className="inspector">
           <Inspector 

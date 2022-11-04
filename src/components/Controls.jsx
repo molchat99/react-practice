@@ -11,9 +11,7 @@ function Controls(props) {
 
   const spaceBar = (e) => {
     if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
-      console.log ("starting new round with...")
-      console.log(props)
-      props.onGeneration(props.gridSize)
+      props.onSpacePress();
     }
   }
 
@@ -24,6 +22,7 @@ function Controls(props) {
       <GridSizeSlider
         onGridSizeChange={props.onGridSizeChange}
         gridSize={props.gridSize}
+        onGeneration={props.onGeneration}
       />
       <TimeOutSlider
         onTimeOutChange={props.onTimeOutChange}
