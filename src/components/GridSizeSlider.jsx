@@ -3,6 +3,7 @@ import '../styles/mapGrid.css';
 import Form from 'react-bootstrap/Form';
 import RangeSlider from 'react-bootstrap-range-slider';
 
+
 function GridSizeSlider(props) {
 
     let [value, setGridSize] = useState(25);

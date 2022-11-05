@@ -29,8 +29,8 @@ function DataPoint(props) {
           onMouseEnter={()=>{modalIsOpen();props.onInformation(props.dataPoint)}} 
           onMouseLeave={()=>{modalIsOpen();props.onInformation(props.dataPoint)}} 
           onClick={()=>{props.onWinCondition(props.dataPoint)}}></div>
-
-          {openModal && <DataPointModal 
+          
+          {props.devMode && openModal && <DataPointModal 
           dataPoint={props.dataPoint} 
           onDelete={props.onDelete}
           />}

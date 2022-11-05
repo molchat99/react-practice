@@ -25,6 +25,8 @@ Smaller additions:
     <li>Add "How to play" section !!!!</li>
     <li>Add number of attemps for correct datapoints</li>
     <li>Add control of point-amount</li>
+    <li><strike>Devmode checkbox</strike></li>
+    <li><strike>Next round on spacebar press</strike></li>
     <li><strike>Beautify UI</strike></li>
     <li><strike>Make game playable by adding delay</strike></li>
     <li><strike>Solve bugs in point generator</strike></li>

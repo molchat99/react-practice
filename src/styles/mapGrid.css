@@ -67,6 +67,12 @@ form.control-btn {
     padding: 0.5em;
 }
 
+div.form-check {
+    border: solid blue 1px;
+    border-radius: 5px;
+    padding: 0.5em;  
+}
+
 form.control-btn > div > label {
     margin: 0 1em;
 }
@@ -79,8 +85,16 @@ form.control-btn > div {
     display: flex;
 }
 
-input[type="range"] {
+input {
     cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin: 0 !important;
+}
+
+.control-btn > label {
+    margin: 0 1em;
 }
 
 .line {

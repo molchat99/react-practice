@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import '../styles/mapGrid.css';
 import GridSizeSlider from './GridSizeSlider';
 import TimeOutSlider from './TimeOutSlider';
+import Form from 'react-bootstrap/Form'
 
 function Controls(props) {
 
@@ -29,7 +30,15 @@ function Controls(props) {
         timeOut={props.timeOut}
 
       />
+      <Form.Check
+        className='control-btn' 
+          type="checkbox"
+          onChange={props.onDevMode}
+
+            label="Devmode"
+          />
     </div>
+
     
   );
 }

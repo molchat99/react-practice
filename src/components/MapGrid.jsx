@@ -28,6 +28,12 @@ class MapGrid extends Component {
     timeOut: 500,
     highscore: 0,
     lossesInRow: 0,
+    devMode: false
+  }
+
+  handleDevMode = () => {
+    let isDevMode = this.state.devMode
+    this.setState({devMode: !isDevMode})
   }
 
   handlePressSpace = () => {
@@ -80,7 +86,7 @@ class MapGrid extends Component {
 
   handleTimeOutChange = (value) => {
     let timeOut = 0;
-    console.log("Changed timeOut to", value)
+    console.log("Changed timeout to", value)
     timeOut = value;
     this.setState({timeOut:timeOut})
   }
@@ -125,6 +131,7 @@ class MapGrid extends Component {
           onTimeOutChange={this.handleTimeOutChange}
           onDisablePivot={this.disablePivot}
           onSpacePress={this.handlePressSpace}
+          onDevMode={this.handleDevMode}
         />
         <div className="inspector">
           <Inspector 
@@ -148,12 +155,10 @@ class MapGrid extends Component {
             onWinCondition={this.handleWinCondition}
             onPivot={this.handlePivot}
             timeOut={this.state.timeOut}
+            devMode={this.state.devMode}
             
             >
             </DataPoint> 
-
-            
-             
           )}
         </div>
         
