@@ -24,7 +24,7 @@ Smaller additions:
 <ul>
     <li>Add "How to play" section !!!!</li>
     <li>Add number of attemps for correct datapoints</li>
-    <li><strike>Add control of point-amount<strike></li>
+    <li><strike>Add control of point-amount</strike></li>
     <li><strike>Devmode checkbox</strike></li>
     <li><strike>Next round on spacebar press</strike></li>
     <li><strike>Beautify UI</strike></li>
