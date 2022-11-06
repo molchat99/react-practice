@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import '../styles/mapGrid.css';
 import GridSizeSlider from './GridSizeSlider';
 import TimeOutSlider from './TimeOutSlider';
+import PointAmountSlider from './PointAmountSlider';
 import Form from 'react-bootstrap/Form'
 
 function Controls(props) {
@@ -24,6 +25,11 @@ function Controls(props) {
         onGridSizeChange={props.onGridSizeChange}
         gridSize={props.gridSize}
         onGeneration={props.onGeneration}
+      />
+      <PointAmountSlider
+        onPointAmoungChange={props.onPointAmoungChange}
+        pointPercentage={props.pointPercentage}
+
       />
       <TimeOutSlider
         onTimeOutChange={props.onTimeOutChange}

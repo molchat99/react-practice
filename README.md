@@ -8,7 +8,7 @@ This minigame will tell you! (note: very work in progress)
 <ul>
     <li>gridsize (will also impact the diameter of the points)</li>
     <li>timeout-period</li>
-    <li>amount of points (To-Do)</li>
+    <li>amount of points</li>
     <li>Distance between red dot and center of screen (To-Do)</li>
 </ul>
 
@@ -24,7 +24,7 @@ Smaller additions:
 <ul>
     <li>Add "How to play" section !!!!</li>
     <li>Add number of attemps for correct datapoints</li>
-    <li>Add control of point-amount</li>
+    <li><strike>Add control of point-amount<strike></li>
     <li><strike>Devmode checkbox</strike></li>
     <li><strike>Next round on spacebar press</strike></li>
     <li><strike>Beautify UI</strike></li>

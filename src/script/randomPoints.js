@@ -1,4 +1,4 @@
-function randomPoints(gridSize) {
+function randomPoints(gridSize, pointPercentage) {
     let uniquePositions = [];
     let pointArray = []
     const maxPointAmount = gridSize*gridSize;
@@ -6,6 +6,8 @@ function randomPoints(gridSize) {
     let i = 0;
 
     pointAmount = getRandomArbitrary(1,maxPointAmount);
+
+    pointAmount = maxPointAmount * (pointPercentage/100)
 
     console.log('Generating', pointAmount, 'points')
 

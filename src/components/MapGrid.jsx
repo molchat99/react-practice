@@ -28,7 +28,8 @@ class MapGrid extends Component {
     timeOut: 500,
     highscore: 0,
     lossesInRow: 0,
-    devMode: false
+    devMode: false,
+    pointPercentage: 50
   }
 
   handleDevMode = () => {
@@ -37,7 +38,7 @@ class MapGrid extends Component {
   }
 
   handlePressSpace = () => {
-    this.handleGeneration(this.state.gridSize)
+    this.handleGeneration(this.state.gridSize, this.state.pointPercentage)
   }
 
   handleDelete = (dataPointId) => {
@@ -54,13 +55,13 @@ class MapGrid extends Component {
     this.setState({dataPoints:dataPoints})
   }
 
-  handleGeneration = (gridSize) => {
+  handleGeneration = (gridSize, pointPercentage) => {
     let inspector = document.getElementsByClassName('inspector')[0]
     inspector.style.setProperty('background-color', 'black')
     let grid = document.getElementsByClassName('map-grid')[0]
     grid.style.setProperty('--gridSize', gridSize)
     grid.style.setProperty('--dataPointSize', `${100/gridSize}px`)
-    const dataPoints = randomPoints(gridSize);
+    const dataPoints = randomPoints(gridSize, pointPercentage);
     this.setState({winMessage:''})
     this.setState({dataPoints: dataPoints})
   }
@@ -89,6 +90,13 @@ class MapGrid extends Component {
     console.log("Changed timeout to", value)
     timeOut = value;
     this.setState({timeOut:timeOut})
+  }
+
+  handlePointAmountChange = (value) => {
+    let pointPercentage = 0;
+    console.log("Changed pointPercentage to", value)
+    pointPercentage = value;
+    this.setState({pointPercentage:pointPercentage})
   }
 
   handleWinCondition = (dataPoint) => {
@@ -129,6 +137,8 @@ class MapGrid extends Component {
           onGridSizeChange={this.handleGridSizeChange}
           timeOut={this.state.timeOut}
           onTimeOutChange={this.handleTimeOutChange}
+          pointPercentage={this.state.pointPercentage}
+          onPointAmoungChange={this.handlePointAmountChange}
           onDisablePivot={this.disablePivot}
           onSpacePress={this.handlePressSpace}
           onDevMode={this.handleDevMode}
