@@ -11,10 +11,26 @@ import '../styles/mapGrid.css';
 
 class MapGrid extends Component {
 
-
   state = { 
     dataPoints:
-    [],
+    [
+      {
+        id: 1,
+        name: "test",
+        location: {gridColumn:"11/12",gridRow:"8/9"},
+        enabled: false,
+        showInfo: false,
+        class: "data-point"
+      },
+      {
+        id: 2,
+        name: "test",
+        location: {gridColumn:"20/21",gridRow:"8/9"},
+        enabled: false,
+        showInfo: false,
+        class: "data-point"
+      }
+    ],
     inspectPoint: {
       id: 3,
       name: "test",

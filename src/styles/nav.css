@@ -1,3 +1,58 @@
 .myNav {
     justify-content:start;
 }
+
+.how-to-play {
+    color: black;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.904);
+    height: 800px;
+    width: 1000px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    top: 100px;
+    animation-name: slidein;         
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    border-radius: 10px;
+}
+
+.how-to-play .how-to-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+}
+
+.how-to-container h1 {
+    text-align: center;
+    margin: 1em;
+}
+
+.how-to-container button {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 40px;
+    padding: 1em;
+    color: white;
+    background: #f65656;
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.how-to-container p {
+}
+
+@keyframes slidein {
+    from {
+      transform: scale(0%);
+    }
+  
+    to {
+      transform: scale(100%);
+    }
+  }
