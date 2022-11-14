@@ -7,11 +7,12 @@ function HowToPlay(props) {
         return (
             <div className='how-to-play'>
                 <div className='how-to-container'>
-                    <h1>How To Play</h1>
-                    <p>
-                        Difficulty
-                    </p>
-                    <button onClick={props.closeModal}>Dismiss</button>
+                    <h1>What's the point?</h1>
+                    <div className='button-group'>
+                        <button className="play-btn menu-button" onClick={props.onPlayGame}>Play</button>
+                        <button className="how-to-btn menu-button" onClick={props.onPlayGame}>How To</button>
+
+                    </div>
                 </div>
             </div>
         );
