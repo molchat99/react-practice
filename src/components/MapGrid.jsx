@@ -108,6 +108,7 @@ class MapGrid extends Component {
       let highscore = this.state.highscore;
       highscore++;
       this.setState({highscore:highscore})
+      this.setState({lossesInRow:0})
     } else {
       this.setState({winMessage:'Try again!	😶‍🌫️'})
       inspector.style.setProperty('background-color', 'red')
