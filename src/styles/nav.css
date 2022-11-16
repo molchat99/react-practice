@@ -1,3 +1,115 @@
 .myNav {
     justify-content:start;
 }
+
+.mod {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  height: 1000px;
+  width: 2000px;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  top: 10px;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  border-radius: 10px;
+}
+
+.how-to-container {
+    animation-name: slidein;         
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    border-radius: 10px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.how-to-play .how-to-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+}
+
+.mod h1 {
+    text-align: center;
+    margin: 1em;
+}
+
+.mod .mole {
+  background-image: url('../media/mole.png');
+}
+
+
+.mod .menu-button {
+    --button-width: 400px;
+    --button-height: 150px;
+    --border-width: 10px;
+    width: var(--button-width);
+    height: var(--button-height);;
+    font-size: 40px;
+    padding: 1em;
+    color: rgb(255, 255, 255);
+    margin: 1em;
+    border: var(--border-width) solid rgb(85, 85, 85);
+    align-self: center;
+    clip-path: polygon(0% 7%, 3% 7%, 3% 0%, 97% 0%, 97% 7%, 100% 7%, 100% 93%, 97% 93%, 97% 100%, 3% 100%, 3% 93%, 0% 93%);
+
+}
+
+.how-to-container .play-btn {
+    background: #92cd41;
+}
+
+.how-to-container .play-btn:hover {
+    background: #83b43e;
+}
+
+.how-to-container .how-to-btn {
+    background: #ffc403;
+}
+
+.how-to-container .how-to-btn:hover {
+    background: #cca112;
+}
+
+.how-to-container .sandbox-btn {
+  background: #0703ff;
+}
+
+.how-to-container .sandbox-btn:hover {
+  background: #2c799c;
+}
+
+
+
+.how-to-container p {
+}
+
+@keyframes slidein {
+    from {
+      transform: scale(0%);
+    }
+  
+    to {
+      transform: scale(100%);
+    }
+  }
+
+  @keyframes playgame {
+    from {
+      transform: scale(100%);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(200%);
+      opacity: 0;
+    }
+  }

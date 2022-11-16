@@ -1,17 +1,36 @@
-import React from 'react'
+import React, {Component} from 'react';
 import '../styles/nav.css';
+import HowToPlay from './HowToPlay';
 
 
-function NavBar() {
+
+class NavBar extends Component {
+
+    state = {
+        modalIsOpen: true
+    }
+        
+    handlePlayGame = () => {
+        let welcomeScreen = document.getElementsByClassName('how-to-play')[0]
+        welcomeScreen.style.setProperty('animation-name', 'playgame')
+        setTimeout(() => {this.setState({modalIsOpen: false})}, 400)
+    }
+
+    handleCloseModal = () => {
+        //this.setState({modalIsOpen: false})
+        console.log("tst")
+    }
+
+    render() {
         return (
-            <nav className="myNav navbar navbar-expand-lg navbar-dark bg-dark">
-                <div className="navbar-brand m-2">How good is your peripheral vision?</div>
-
-            
-
-
-            </nav>
+            <div>
+                {this.state.modalIsOpen && <HowToPlay
+                onPlayGame={this.handlePlayGame}
+                />}
+            </div>
         );
+    }
+        
     
 }
 

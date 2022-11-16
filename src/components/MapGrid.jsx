@@ -2,19 +2,39 @@ import React, {Component} from 'react';
 import DataPoint from './DataPoint';
 import Controls from './Controls';
 import Inspector from './Inspector';
+import HowToPlay from './HowToPlay';
 import '../styles/inspector.css';
+import '../styles/nav.css';
+
 
 
 //import AddDataPoint from './AddDataPoint';
 import  randomPoints from '../script/randomPoints.js'
 import '../styles/mapGrid.css';
+import DifficultyModal from './DifficultyModal';
 
 class MapGrid extends Component {
 
-
   state = { 
     dataPoints:
-    [],
+    [
+      {
+        id: 1,
+        name: "test",
+        location: {gridColumn:"11/12",gridRow:"8/9"},
+        enabled: false,
+        showInfo: false,
+        class: "data-point"
+      },
+      {
+        id: 2,
+        name: "test",
+        location: {gridColumn:"20/21",gridRow:"8/9"},
+        enabled: false,
+        showInfo: false,
+        class: "data-point"
+      }
+    ],
     inspectPoint: {
       id: 3,
       name: "test",
@@ -29,7 +49,9 @@ class MapGrid extends Component {
     highscore: 0,
     lossesInRow: 0,
     devMode: false,
-    pointPercentage: 50
+    pointPercentage: 50,
+    diffultyIsOpen: false,
+    welcomeIsOpen: true
   }
 
   handleDevMode = () => {
@@ -126,10 +148,15 @@ class MapGrid extends Component {
     }
   }
   
+  handlePlayGame = () => {
+    let welcomeScreen = document.getElementsByClassName('mod')[0]
+    welcomeScreen.style.setProperty('animation-name', 'playgame')
+    setTimeout(() => {this.setState({welcomeIsOpen: false})}, 400)
+  }
 
   render() { 
     return (
-      <div className='container'>
+      <div className='container crt'>
         
         <Controls 
           onGeneration={this.handleGeneration}
@@ -171,9 +198,12 @@ class MapGrid extends Component {
             >
             </DataPoint> 
           )}
-        </div>
-        
 
+        </div>
+        {this.state.welcomeIsOpen && <HowToPlay
+          onPlayGame={this.handlePlayGame}
+        />}
+        {this.state.diffultyIsOpen && <DifficultyModal />}
       </div>
     );
   }

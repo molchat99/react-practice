@@ -1,0 +1,36 @@
+{
+    "levels":
+    [
+        {
+            "id": 1,
+            "gridSize": 10,
+            "timeOut": 500,
+            "pointPercentage": 100
+        },
+        {
+            "id": 2,
+            "gridSize": 15,
+            "timeOut": 500,
+            "pointPercentage": 50
+        },
+        {
+            "id": 3,
+            "gridSize": 17,
+            "timeOut": 400,
+            "pointPercentage": 70
+        },
+        {
+            "id": 4,
+            "gridSize": 20,
+            "timeOut": 300,
+            "pointPercentage": 75
+        },
+        {
+            "id": 5,
+            "gridSize": 25,
+            "timeOut": 200,
+            "pointPercentage": 50
+        }
+    ]
+    
+}
